@@ -1,13 +1,23 @@
-version: '3'
+version: "3"
 services:
-    php-apache:
-        image: php:7.2.1-apache
+    # php-apache:
+    #     image: php:7.2.1-apache
+    #     ports:
+    #         - 8080:80
+    #     volumes:
+    #         - ./public_html:/var/www/html
+    #     links:
+    #         - "mariadb"
+
+    web:
+        build: ./docker/php-apache
+        # image: moodle:php:7.2.1-apache
+        # volumes:
+        #   - ./public_html:/var/www/html
         ports:
-            - 8080:80
-        volumes:
-            - ./public_html:/var/www/html
+          - "8080:80"
         links:
-            - 'mariadb'
+            - "mariadb"
 
     mariadb:
         image: mariadb:10.2.33
@@ -17,9 +27,9 @@ services:
             TZ: "Europe/Rome"
             MYSQL_ALLOW_EMPTY_PASSWORD: "no"
             MYSQL_ROOT_PASSWORD: "rootpwd"
-            MYSQL_USER: 'testuser'
-            MYSQL_PASSWORD: 'testpassword'
-            MYSQL_DATABASE: 'testdb'
+            MYSQL_USER: "moodle"
+            MYSQL_PASSWORD: "moodle"
+            MYSQL_DATABASE: "moodle"
 
 volumes:
     mariadb:
