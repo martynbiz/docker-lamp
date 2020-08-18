@@ -1,17 +1,15 @@
-# docker-lamp
+# Moodle-docker
 
-Basic PHP/Apache/MariaDB setup to do whatever
+A docker container for Moodle LMS
 
+## Getting started 
 
-
-```
-cd /var/www
-mkdir moodledata
-chown www-data:www-data moodledata 
-```
+First clone this repository and amend the docker-compose.yml file to your liking, then from within the project directory:
 
 ```
-apt update && apt install -y libpng-dev libicu-dev zip unzip libxml2-dev sendmail
-docker-php-ext-install mysqli gd intl zip xmlrpc soap opcache
-service apache2 reload
+$ docker-compose up
 ```
+
+You should be able to access the install page at http://localhost:8080 (or whatever port is set to)
+
+Note: `service apache reload` is commented out and at this time of writing, needs to be run within the container.
