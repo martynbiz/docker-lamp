@@ -1,5 +1,5 @@
 public_html/*
-# docker-compose.yml
+docker-compose.yml
 
 !public_html/index.php
 !.gitignore
