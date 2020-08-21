@@ -1,13 +1,19 @@
 version: '3'
 services:
+    # moodle:
+    #     image: martynbiz/moodle:latest
+    #     ports:
+    #         - 8080:80
+    #     links:
+    #         - 'mariadb'
     moodle:
-        image: martynbiz/moodle:latest
+        build: ./docker/php-apache
         ports:
             - 8080:80
         links:
             - 'mariadb'
     mariadb:
-        image: mariadb:10.1
+        image: mariadb:10.2.33
         volumes:
             - mariadb:/var/lib/mysql
         environment:
