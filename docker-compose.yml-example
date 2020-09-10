@@ -7,7 +7,7 @@ services:
         links:
             - 'mariadb'
     mariadb:
-        image: mariadb:10.1
+        image: mariadb:10.2.33
         volumes:
             - mariadb:/var/lib/mysql
         environment:
